@@ -1,0 +1,50 @@
+nav {
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-family: "Lobster", cursive;
+  text-shadow: 4px 4px black;
+  margin-left: 3rem;
+}
+
+.logo:hover {
+  transform: scale(1.25);
+  text-shadow: 6px 6px black;
+}
+
+.cart-box {
+ 
+  margin-right: 2rem;
+  justify-content: flex-end;
+}
+
+.cart {
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .nav-contain {
+    display: flex !important;
+  }
+  .logo {
+   margin-left: 0;
+  }
+  .cart-box {
+    margin: 0;
+  }
+}
+@media (max-width: 768px) {
+  .nav-contain {
+    flex-direction: column;
+  }
+  .logo {
+    margin-left: 0;
+  }
+  .cart-box {
+    margin-right: 0;
+  }
+}

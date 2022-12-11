@@ -1,0 +1,11 @@
+.form-container {
+    border: 5px solid #39545a;
+    height: 30rem;
+    width: 40rem;
+    background-color: white;
+    color: black;
+    display: flex;
+   
+  
+}
+
