@@ -1,26 +1,34 @@
-import React, { useState} from "react";
+import React from "react";
 import "./Details.css";
 import { MDBBtn } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
 
-export default function Details({filteredItems, cartCount, setCartCount, cartUse, setCartItem}) {
+export default function Details({filteredItems, cartCount, setCartCount, cartUse, setCartItem, cartItem, loading, price, setPrice}) {
+
 
 
   const cartAdd = (itemId) => {
     setCartCount(cartCount + 1)
     cartUse(itemId)
+    cartItem.forEach((item) => {
+      setPrice((price) => price + item.price);
+    });
+   
   
   }
   const cartRemove = (itemId) => {
      setCartItem(currentCart => {
       return currentCart.filter(item => item.id != itemId)
-     })
-      
-    
+     }) 
   }
  
   return (
+    <>
+    {loading ? (
+      <LoadingSpinner />
+    ) : (
     <header>
       <div className="p-5 text-center shop-pic bg-image details-head head">
         <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}>
@@ -43,8 +51,8 @@ export default function Details({filteredItems, cartCount, setCartCount, cartUse
                   <div className="ratings-box">
                     <p>{item.rating.rate}</p>
                   </div>
-                  <h5 className="price mx-1">Price$</h5>
-                  <div className="price-box">{item.price}</div>
+                  <h5 className="price-details mx-1">Price$</h5>
+                  <div className="price-box">{item.price.toFixed(2)}</div>
                 </div>
                 <div className="d-flex flex-column align-items-center justify-content-center mt-4 doo">
                 <div className="cartBtns">
@@ -96,5 +104,7 @@ export default function Details({filteredItems, cartCount, setCartCount, cartUse
         </div>
       </div>
     </header>
+    )}
+    </>
   );
 }

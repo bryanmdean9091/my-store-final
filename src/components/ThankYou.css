@@ -1,0 +1,16 @@
+.thanks {
+    font-family: "Lobster", cursive;
+    text-shadow: 4px 4px black;
+}
+
+.order {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 3px 3px black;
+}
+
+.confirmation {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 3px 3px black;
+    font-weight: 900;
+    
+}

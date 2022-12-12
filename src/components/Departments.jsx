@@ -1,11 +1,16 @@
 import React from "react";
 import "./Departments.css";
  import { Link } from "react-router-dom";
+ import LoadingSpinner from "./LoadingSpinner";
 
-export default function Departments({categoryFunc}) {
+export default function Departments({categoryFunc, loading}) {
   
 
   return (
+    <>
+    {loading ? (
+      <LoadingSpinner />
+    ) : (
     <header>
       <div className="p-5 text-center bg-image shop-pic head">
         <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}>
@@ -92,5 +97,7 @@ export default function Departments({categoryFunc}) {
         </div>
       </div>
     </header>
+    )}
+    </>
   );
 }

@@ -1,14 +1,14 @@
-import React, { useState, UseEffect, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Departments from "./components/Departments";
 import Details from "./components/Details";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
-import { Routes, Route, Outlet } from "react-router-dom";
-import LoadingSpinner from "./components/LoadingSpinner";
+import { Routes, Route } from "react-router-dom";
 import Checkout from "./components/Checkout";
 import Cart from "./components/Cart";
+import ThankYou from "./components/ThankYou";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -17,13 +17,17 @@ function App() {
   const [filteredItems, setFilteredItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartItem, setCartItem] = useState([]);
+  const [price, setPrice] = useState(0);
+  const [confirm, setConfirm] = useState('');
 
   const cartUse = (itemId) => {
-    const cartGoods = [...cartItem]
-    const findItem = cartGoods.find((contents) => contents.id == itemId)
+    const cartGoods = [...cartItem];
+    const findItem = cartGoods.find((contents) => contents.id == itemId);
     if (findItem == undefined) {
-      const allProducts = products
-      const foundProduct = allProducts.find((contents) => contents.id == itemId)
+      const allProducts = products;
+      const foundProduct = allProducts.find(
+        (contents) => contents.id == itemId
+      );
       const newValue = {
         category: foundProduct.category,
         description: foundProduct.description,
@@ -32,27 +36,26 @@ function App() {
         price: foundProduct.price,
         rating: foundProduct.rating,
         title: foundProduct.title,
-        quantity: cartCount
-
-    }
-    setCartItem((previousCartState) => {
-      return [...previousCartState, newValue]
-    })
-   ;
-    setCartCount(1)
-    }
-    else {
-      const mappedCartGoods = cartGoods.map(item => {
-        if (item.id == itemId ) {
-          return {...item, quantity:item.quantity  + cartCount}
+        quantity: cartCount,
+      };
+      setCartItem((previousCartState) => {
+        return [...previousCartState, newValue];
+      });
+      setCartCount(1);
+    } else {
+      const mappedCartGoods = cartGoods.map((item) => {
+        if (item.id == itemId) {
+          return { ...item, quantity: item.quantity + cartCount };
         }
         return item;
-      })
-      setCartItem(mappedCartGoods)
-      setCartCount(1)
+      });
+      setCartItem(mappedCartGoods);
+      setCartCount(1);
     }
-    // console.log(cartItem);
-  }
+
+    console.log(cartItem);
+    console.log(price);
+  };
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -82,10 +85,8 @@ function App() {
   };
 
   return (
-   
     <div className="App">
-      <NavBar cartCount={cartCount}
-      cartItem={cartItem} />
+      <NavBar cartCount={cartCount} cartItem={cartItem} />
       <Routes>
         <Route
           path="/"
@@ -133,10 +134,41 @@ function App() {
               cartCount={cartCount}
               cartUse={cartUse}
               setCartItem={setCartItem}
+              cartItem={cartItem}
+              price={price}
+              setPrice={setPrice}
             />
           }
         ></Route>
-        <Route path="/cart" element={<Cart cartItem={cartItem}/>} />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cartItem={cartItem}
+              setCartItem={setCartItem}
+              setCartCount={setCartCount}
+              cartCount={cartCount}
+              filteredItems={filteredItems}
+              setPrice={setPrice}
+              price={price}
+            />
+          }
+        />
+        <Route
+         path="/checkout" 
+         element={<Checkout
+         setConfirm={setConfirm}
+         cartCount={cartCount} 
+          setCartCount={setCartCount}
+         />}
+          />
+          <Route path="/confirm"
+          element={<ThankYou
+          confirm={confirm}
+          />
+          } 
+
+          />
       </Routes>
     </div>
   );

@@ -3,7 +3,7 @@ import "./NavBar.css";
 import { MDBNavbar, MDBContainer, MDBIcon, MDBBadge } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 
-export default function NavBar({cartCount, cartItem}) {
+export default function NavBar({cartItem}) {
  
   return (
     <MDBNavbar bgColor="#39545a" className="shadow-none">

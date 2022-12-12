@@ -1,11 +1,16 @@
-.form-container {
-    border: 5px solid #39545a;
-    height: 30rem;
-    width: 40rem;
-    background-color: white;
-    color: black;
+.checkout-page {
+    flex-direction: column;
     display: flex;
-   
-  
+}
+
+
+.credit-btn {
+    background-color: #39545a !important;
+    color: white !important;
+    margin: 0 auto;
+}
+
+.credit-btn:hover {
+    transform: scale(1.25);
 }
 
