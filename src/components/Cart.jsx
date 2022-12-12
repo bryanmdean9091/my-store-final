@@ -3,7 +3,7 @@ import "./Cart.css";
 import { MDBBtn } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 
-export default function ({ cartItem, setCartItem, setCartCount, cartCount, currentCart, setPrice, price, item}) {
+export default function ({ cartItem, setCartItem, setCartCount, cartCount, currentCart, setPrice, price }) {
 
  
 

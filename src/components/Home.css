@@ -22,6 +22,12 @@
     font-size: 15px;
   }
 
+  .shop-now:hover {
+    transform: scale(1.25);
+    box-shadow: 3px 3px black;
+
+  }
+
   .arrow {
     color: white;
     height: 2rem;

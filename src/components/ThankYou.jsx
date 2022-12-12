@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './ThankYou.css';
 
-export default function ThankYou() {
+export default function ThankYou({user}) {
 
     let randomString = () =>
     {
@@ -21,14 +21,14 @@ export default function ThankYou() {
 
 
   return (
-    <div className="p-5 text-center bg-image shop-pic head">
-    <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}>
+    <div className="p-5 text-center bg-image shop-pic ">
+    <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}>
       <div className="d-flex justify-content-center align-items-center h-100">
         <div className="text-white">
           <h1 className="mb-3 store-name display-1">Fill the Void</h1>
-          <h1 className='thanks'>Thank You!</h1>
+          <h1 className='thanks'>Thank You, {user}</h1>
           <h3 className='order'>Your Order Is On Its Way!</h3>
-          <h4>Your Confirmation Number is:</h4>
+          <h4>Your Confirmation Code is:</h4>
           <h5 className='confirmation'>{randomNumber}</h5>
         </div>
       </div>

@@ -3,6 +3,22 @@
     display: flex;
 }
 
+.credit-box {
+    background-color: white;
+    opacity: 0.9;
+    border: 5px solid  #39545a;
+    margin: 0 auto;
+}
+
+.form-control {
+    border: 3px solid black !important;
+}
+
+.text {
+    font-weight: 900;
+    color: black;
+}
+
 
 .credit-btn {
     background-color: #39545a !important;
@@ -10,7 +26,18 @@
     margin: 0 auto;
 }
 
+.checkout-back {
+    height: 10px;
+    color: #39545a;
+}
+
+.subPay {
+    font-size: 10px;
+    padding: 5px;
+}
+
 .credit-btn:hover {
-    transform: scale(1.25);
+    transform: scale(1.1);
+    background-color: ;
 }
 
