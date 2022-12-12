@@ -12,17 +12,19 @@ import ThankYou from "./components/ThankYou";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [ loading, setLoading] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartItem, setCartItem] = useState([]);
   const [price, setPrice] = useState(0);
   const [confirm, setConfirm] = useState('');
+  const [user, setUser] = useState('');
+ 
 
   const cartUse = (itemId) => {
     const cartGoods = [...cartItem];
-    const findItem = cartGoods.find((contents) => contents.id == itemId);
+    const findItem = cartGoods.find((contents) => contents.id === itemId);
     if (findItem == undefined) {
       const allProducts = products;
       const foundProduct = allProducts.find(
@@ -58,7 +60,7 @@ function App() {
   };
 
   const fetchProducts = async () => {
-    setLoading(true);
+     setLoading(true);
     const req = await fetch(`https://fakestoreapi.com/products`);
     const products = await req.json();
     setProducts(products);
@@ -121,6 +123,7 @@ function App() {
             <Products
               filteredProducts={filteredProducts}
               productFunc={productFunc}
+              loading={loading}
             />
           }
         ></Route>
@@ -160,11 +163,14 @@ function App() {
          setConfirm={setConfirm}
          cartCount={cartCount} 
           setCartCount={setCartCount}
+          user={user}
+          setUser={setUser}
          />}
           />
           <Route path="/confirm"
           element={<ThankYou
           confirm={confirm}
+          user={user}
           />
           } 
 
