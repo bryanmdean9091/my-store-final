@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Checkout.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
-export default function Checkout({ setCartCount, user, setUser }) {
+export default function Checkout({ loading,  user, setUser, setCartItem, tax }) {
   const [inputs, setInputs] = useState({});
   const [btn, enableBtn] = useState(true);
 
-  const Navigate = "./confirm";
+  const Navigate = useNavigate();
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -21,18 +22,23 @@ export default function Checkout({ setCartCount, user, setUser }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setCartCount(0);
-    Navigate();
+    setCartItem([])
+    Navigate('/confirm')
   };
 
   return (
+    <>
+    {loading ? (
+      <LoadingSpinner />
+    ) : (
     <div className="p-5 text-center bg-image shop-pic checkout-page">
       <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}>
         <div className="d-flex justify-content-center align-items-center h-100">
           <div className="container p-0">
             <div className="card credit-box px-4">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={(e) => handleSubmit(e)}>
                 <p className="h8 text py-3">Payment Details</p>
+                <p className="h8 text mt-0 bg-success">Total:{tax.toFixed(2)}</p>
                 <div className="row gx-3">
                   <div className="col-6">
                     <div className="d-flex flex-column">
@@ -124,11 +130,11 @@ export default function Checkout({ setCartCount, user, setUser }) {
                       <p className="text mb-1">Card Number</p>
                       <input
                         className="form-control mb-2"
-                        type="text"
+                        type="password"
                         name="card"
                         value={inputs.card || ""}
                         onChange={handleChange}
-                        placeholder="1234 5678 435678"
+                        placeholder="1234 5678 1234 5678"
                         maxLength={16}
                         pattern="[0-9]{16}"
                         required
@@ -173,13 +179,11 @@ export default function Checkout({ setCartCount, user, setUser }) {
                     <Link to="/cart">
                       <i className="fas fa-angle-left checkout-back me-3 "></i>
                     </Link>
-                    <Link to="/confirm">
                       <input
                         type="submit"
                         className="credit-btn mb-3 subPay"
                         disabled={btn}
                       />
-                    </Link>
                   </div>
                 </div>
               </form>
@@ -188,5 +192,7 @@ export default function Checkout({ setCartCount, user, setUser }) {
         </div>
       </div>
     </div>
+    )}
+    </>
   );
 }

@@ -12,24 +12,25 @@ import ThankYou from "./components/ThankYou";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [ loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
+  const [cartCount, setCartCount] = useState(1);
   const [cartItem, setCartItem] = useState([]);
   const [price, setPrice] = useState(0);
-  const [confirm, setConfirm] = useState('');
-  const [user, setUser] = useState('');
- 
+  const [tax, setTax] = useState(0);
+  const [confirm, setConfirm] = useState("");
+  const [user, setUser] = useState("");
 
   const cartUse = (itemId) => {
     const cartGoods = [...cartItem];
-    const findItem = cartGoods.find((contents) => contents.id === itemId);
+    const findItem = cartGoods.find((contents) => contents.id == itemId);
     if (findItem == undefined) {
       const allProducts = products;
       const foundProduct = allProducts.find(
         (contents) => contents.id == itemId
       );
+      // setCartCount(1)
       const newValue = {
         category: foundProduct.category,
         description: foundProduct.description,
@@ -39,15 +40,20 @@ function App() {
         rating: foundProduct.rating,
         title: foundProduct.title,
         quantity: cartCount,
+        totalCost: foundProduct.price * cartCount,
       };
-      setCartItem((previousCartState) => {
-        return [...previousCartState, newValue];
+      setCartItem((cartItem) => {
+        return [...cartItem, newValue];
       });
       setCartCount(1);
     } else {
       const mappedCartGoods = cartGoods.map((item) => {
         if (item.id == itemId) {
-          return { ...item, quantity: item.quantity + cartCount };
+          return {
+            ...item,
+            quantity: item.quantity + cartCount,
+            totalCost: item.totalCost + cartCount * item.price,
+          };
         }
         return item;
       });
@@ -56,12 +62,15 @@ function App() {
     }
 
     console.log(cartItem);
-    console.log(price);
   };
 
+  useEffect(() => {
+    console.log(price, cartItem);
+  }, [price, cartItem]);
+
   const fetchProducts = async () => {
-     setLoading(true);
-    const req = await fetch(`https://fakestoreapi.com/products`);
+    setLoading(true);
+    const req = await fetch(` https://fakestoreapi.com/products`);
     const products = await req.json();
     setProducts(products);
     setLoading(false);
@@ -154,27 +163,29 @@ function App() {
               filteredItems={filteredItems}
               setPrice={setPrice}
               price={price}
+              tax={tax}
+              setTax={setTax}
             />
           }
         />
         <Route
-         path="/checkout" 
-         element={<Checkout
-         setConfirm={setConfirm}
-         cartCount={cartCount} 
-          setCartCount={setCartCount}
-          user={user}
-          setUser={setUser}
-         />}
-          />
-          <Route path="/confirm"
-          element={<ThankYou
-          confirm={confirm}
-          user={user}
-          />
-          } 
-
-          />
+          path="/checkout"
+          element={
+            <Checkout
+              setConfirm={setConfirm}
+              cartCount={cartCount}
+              setCartCount={setCartCount}
+              user={user}
+              setUser={setUser}
+              setCartItem={setCartItem}
+              tax={tax}
+            />
+          }
+        />
+        <Route
+          path="/confirm"
+          element={<ThankYou confirm={confirm} user={user} />}
+        />
       </Routes>
     </div>
   );

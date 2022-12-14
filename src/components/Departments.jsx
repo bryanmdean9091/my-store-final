@@ -12,7 +12,7 @@ export default function Departments({categoryFunc, loading}) {
       <LoadingSpinner />
     ) : (
     <header>
-      <div className="p-5 text-center bg-image shop-pic head">
+      <div className="p-5 text-center bg-image shop-pic dept-bg">
         <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}>
           <div className="d-flex justify-content-center align-items-center h-100">
             <div className="container-fluid product-wrap">

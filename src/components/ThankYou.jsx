@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import './ThankYou.css';
+import LoadingSpinner from './LoadingSpinner';
 
-export default function ThankYou({user}) {
+export default function ThankYou({ loading, user}) {
 
     let randomString = () =>
     {
@@ -21,6 +22,10 @@ export default function ThankYou({user}) {
 
 
   return (
+    <>
+     {loading ? (
+        <LoadingSpinner />
+      ) : (
     <div className="p-5 text-center bg-image shop-pic ">
     <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}>
       <div className="d-flex justify-content-center align-items-center h-100">
@@ -34,5 +39,7 @@ export default function ThankYou({user}) {
       </div>
     </div>
   </div>
+      )}
+  </>
   )
 }

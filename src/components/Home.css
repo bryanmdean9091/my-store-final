@@ -1,6 +1,6 @@
 .shop-pic {
     background-image: url(../media/Screenshot_20221202_062142.png);
-    min-height: 40rem;
+    height: 40rem;
     border: 4px solid white;
     margin: 0 auto;
     width: 95%;
@@ -35,24 +35,22 @@
   
   @media (max-width: 480px) {
     .shop-pic {
-      height: 35rem !important;
+      height: 30rem !important;
     }
     .store-name {
-      font-size: 25px;
+      font-size: 40px;
     }
-  
-    .sign-in {
-      font-size: 15px !important;
-    }
-  
     .title-2 {
-      font-size: 8px;
+      font-size:20px;
+    }
+    .sign-in {
+      font-size: 7px !important;
     }
   }
   
   @media (max-width: 768px) {
-    .head {
-      height: 35rem;
+    .shop-pic {
+      height: 30rem !important;
     }
   }
   
