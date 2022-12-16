@@ -4,7 +4,7 @@ import { MDBBtn } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 
-export  function ({ cartItem, setCartItem, loading, setTotal, total }) {
+export default function Cart ({ cartItem, setCartItem, loading, setTotal, total }) {
   
 
   const subTotal = () => {
@@ -32,8 +32,7 @@ export  function ({ cartItem, setCartItem, loading, setTotal, total }) {
 
   useEffect(() => {
     subTotal();
-    console.log("tax");
-  }, [cartItem.length, subTotal]);
+  }, [cartItem.length]);
   return (
     <>
       {loading ? (
