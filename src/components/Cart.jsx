@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./Cart.css";
 import { MDBBtn } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 
-export default function ({ cartItem, setCartItem, loading, setTotal, total }) {
+export  function ({ cartItem, setCartItem, loading, setTotal, total }) {
   
 
   const subTotal = () => {
-    if (cartItem.length == 0) {
+    if (cartItem.length === 0) {
       setTotal(0);
       return;
     }
@@ -25,7 +25,7 @@ export default function ({ cartItem, setCartItem, loading, setTotal, total }) {
 
   const cartRemove = (itemId) => {
     setCartItem((currentCart) => {
-      return currentCart.filter((item) => item.id != itemId);
+      return currentCart.filter((item) => item.id !== itemId);
     });
     subTotal();
   };
@@ -33,7 +33,7 @@ export default function ({ cartItem, setCartItem, loading, setTotal, total }) {
   useEffect(() => {
     subTotal();
     console.log("tax");
-  }, [cartItem.length]);
+  }, [cartItem.length, subTotal]);
   return (
     <>
       {loading ? (

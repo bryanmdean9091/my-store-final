@@ -15,7 +15,7 @@ export default function Checkout({ loading,  user, setUser, setCartItem, total  
     setInputs((values) => ({ ...values, [name]: value }));
     setUser(inputs.firstName);
     console.log(user);
-    if (inputs.value != "") {
+    if (inputs.value !== "") {
       enableBtn(false);
     }
   };

@@ -27,7 +27,7 @@ export default function Details({
   };
   const cartRemove = (itemId) => {
     setCartItem((currentCart) => {
-      return currentCart.filter((item) => item.id != itemId);
+      return currentCart.filter((item) => item.id !== itemId);
     });
   };
 
