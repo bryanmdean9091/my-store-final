@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/bryanmdean9091/my-store-final.git/static/css/main.47757963.css",
+    "main.js": "/bryanmdean9091/my-store-final.git/static/js/main.76662c7b.js",
+    "static/js/787.b80b727d.chunk.js": "/bryanmdean9091/my-store-final.git/static/js/787.b80b727d.chunk.js",
+    "static/media/Screenshot_20221202_062142.png": "/bryanmdean9091/my-store-final.git/static/media/Screenshot_20221202_062142.006d5373256ee2fc487e.png",
+    "static/media/fa-solid-900.ttf": "/bryanmdean9091/my-store-final.git/static/media/fa-solid-900.b1a653db79258eeccc5d.ttf",
+    "static/media/women2.png": "/bryanmdean9091/my-store-final.git/static/media/women2.63ae72c15c95faaf500d.png",
+    "static/media/electronics1.png": "/bryanmdean9091/my-store-final.git/static/media/electronics1.f667374c5bab74d64b1f.png",
+    "static/media/men5.png": "/bryanmdean9091/my-store-final.git/static/media/men5.f3daa8a8196fdfeded0f.png",
+    "static/media/fa-brands-400.ttf": "/bryanmdean9091/my-store-final.git/static/media/fa-brands-400.450a5c898f0b184b968b.ttf",
+    "static/media/fa-solid-900.woff2": "/bryanmdean9091/my-store-final.git/static/media/fa-solid-900.41c0f706d8ce93933771.woff2",
+    "static/media/fa-brands-400.woff2": "/bryanmdean9091/my-store-final.git/static/media/fa-brands-400.3ac6859b28be946745f9.woff2",
+    "static/media/jewelery2.png": "/bryanmdean9091/my-store-final.git/static/media/jewelery2.032a2dcc6a3cf2f77915.png",
+    "static/media/fa-regular-400.ttf": "/bryanmdean9091/my-store-final.git/static/media/fa-regular-400.3cd9fb8fcec4ad0f99d4.ttf",
+    "static/media/fa-regular-400.woff2": "/bryanmdean9091/my-store-final.git/static/media/fa-regular-400.1f3772178d9e5bed38a6.woff2",
+    "static/media/fa-v4compatibility.ttf": "/bryanmdean9091/my-store-final.git/static/media/fa-v4compatibility.e314b618134d5be20996.ttf",
+    "static/media/fa-v4compatibility.woff2": "/bryanmdean9091/my-store-final.git/static/media/fa-v4compatibility.4ee7f902d88f819e251c.woff2",
+    "index.html": "/bryanmdean9091/my-store-final.git/index.html",
+    "main.47757963.css.map": "/bryanmdean9091/my-store-final.git/static/css/main.47757963.css.map",
+    "main.76662c7b.js.map": "/bryanmdean9091/my-store-final.git/static/js/main.76662c7b.js.map",
+    "787.b80b727d.chunk.js.map": "/bryanmdean9091/my-store-final.git/static/js/787.b80b727d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47757963.css",
+    "static/js/main.76662c7b.js"
+  ]
+}
