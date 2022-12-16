@@ -3,7 +3,7 @@ import "./Checkout.css";
 import { Link, useNavigate } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 
-export default function Checkout({ loading,  user, setUser, setCartItem, tax }) {
+export default function Checkout({ loading,  user, setUser, setCartItem, total  }){
   const [inputs, setInputs] = useState({});
   const [btn, enableBtn] = useState(true);
 
@@ -38,7 +38,7 @@ export default function Checkout({ loading,  user, setUser, setCartItem, tax }) 
             <div className="card credit-box px-4">
               <form onSubmit={(e) => handleSubmit(e)}>
                 <p className="h8 text py-3">Payment Details</p>
-                <p className="h8 text mt-0 bg-success">Total:{tax.toFixed(2)}</p>
+                <p className="h8 text mt-0 total-check">Total: &nbsp;${total.toFixed(2)}</p>
                 <div className="row gx-3">
                   <div className="col-6">
                     <div className="d-flex flex-column">

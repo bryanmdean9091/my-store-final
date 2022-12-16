@@ -18,7 +18,7 @@ function App() {
   const [cartCount, setCartCount] = useState(1);
   const [cartItem, setCartItem] = useState([]);
   const [price, setPrice] = useState(0);
-  const [tax, setTax] = useState(0);
+  const [total, setTotal] = useState(0);
   const [confirm, setConfirm] = useState("");
   const [user, setUser] = useState("");
 
@@ -30,7 +30,6 @@ function App() {
       const foundProduct = allProducts.find(
         (contents) => contents.id == itemId
       );
-      // setCartCount(1)
       const newValue = {
         category: foundProduct.category,
         description: foundProduct.description,
@@ -92,7 +91,6 @@ function App() {
   const productFunc = (ID) => {
     const itemsCopy = products.filter((item) => item.id == ID);
     setFilteredItems(itemsCopy);
-    // console.log(itemsCopy);
   };
 
   return (
@@ -163,8 +161,8 @@ function App() {
               filteredItems={filteredItems}
               setPrice={setPrice}
               price={price}
-              tax={tax}
-              setTax={setTax}
+              setTotal={setTotal}
+              total={total}
             />
           }
         />
@@ -178,7 +176,7 @@ function App() {
               user={user}
               setUser={setUser}
               setCartItem={setCartItem}
-              tax={tax}
+              total={total}
             />
           }
         />

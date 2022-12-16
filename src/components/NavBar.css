@@ -16,6 +16,16 @@ nav {
   text-shadow: 6px 6px black;
 }
 
+ul {
+  display: inline-block;
+}
+
+.dept-nav {
+  color: white;
+  font-family: "Lobster", cursive;
+  text-shadow: 4px 4px black;
+}
+
 .cart-box {
  
   margin-right: 2rem;

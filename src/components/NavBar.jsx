@@ -8,8 +8,8 @@ export default function NavBar({cartItem}) {
   return (
     <MDBNavbar bgColor="#39545a" className="shadow-none">
       <MDBContainer fluid className="nav-contain d-flex align-items-center">
-        <Link to="/">
-        <div className="logo">Fill the Void</div>
+        <Link to="/departments">
+        <div className="logo">Fill the Void &nbsp; &nbsp;Departments</div>
         </Link>
         <div className="cart-box">
           <MDBBadge pill color="danger">

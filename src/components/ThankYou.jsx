@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import './ThankYou.css';
 import LoadingSpinner from './LoadingSpinner';
+import { MDBBtn } from "mdb-react-ui-kit";
+import { Link } from 'react-router-dom';
 
 export default function ThankYou({ loading, user}) {
 
@@ -35,8 +37,14 @@ export default function ThankYou({ loading, user}) {
           <h3 className='order'>Your Order Is On Its Way!</h3>
           <h4>Your Confirmation Code is:</h4>
           <h5 className='confirmation'>{randomNumber}</h5>
+          <Link to="/">
+          <MDBBtn outline size="lg" className="sign-in shop-now font-weight-bold mt-3">
+                  Home
+                </MDBBtn>
+                </Link>
         </div>
       </div>
+     
     </div>
   </div>
       )}
