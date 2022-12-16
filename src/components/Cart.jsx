@@ -61,7 +61,7 @@ export default function Cart ({ cartItem, setCartItem, loading, setTotal, total 
                         <MDBBtn
                           outline
                           size="lg"
-                          className="sign-in font-weight-bold checkout mb-3"
+                          className="sign-in font-weight-bold checkout mt-2"
                         >
                           <i className="fas fa-check"></i>
                         </MDBBtn>
