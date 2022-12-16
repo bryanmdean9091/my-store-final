@@ -24,11 +24,11 @@ function App() {
 
   const cartUse = (itemId) => {
     const cartGoods = [...cartItem];
-    const findItem = cartGoods.find((contents) => contents.id == itemId);
-    if (findItem == undefined) {
+    const findItem = cartGoods.find((contents) => contents.id === itemId);
+    if (findItem === undefined) {
       const allProducts = products;
       const foundProduct = allProducts.find(
-        (contents) => contents.id == itemId
+        (contents) => contents.id === itemId
       );
       const newValue = {
         category: foundProduct.category,
@@ -47,7 +47,7 @@ function App() {
       setCartCount(1);
     } else {
       const mappedCartGoods = cartGoods.map((item) => {
-        if (item.id == itemId) {
+        if (item.id === itemId) {
           return {
             ...item,
             quantity: item.quantity + cartCount,
@@ -82,14 +82,14 @@ function App() {
 
   const categoryFunc = (inputcategory) => {
     const productsCopy = products.filter(
-      (item) => item.category == inputcategory
+      (item) => item.category === inputcategory
     );
     setFilteredProducts(productsCopy);
     console.log(productsCopy);
   };
 
   const productFunc = (ID) => {
-    const itemsCopy = products.filter((item) => item.id == ID);
+    const itemsCopy = products.filter((item) => item.id === ID);
     setFilteredItems(itemsCopy);
   };
 
